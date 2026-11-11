@@ -61,7 +61,12 @@ public class AdoNetTradeStorage : ITradeStorage
                     command.Parameters.AddWithValue("@destinationCurrency", trade.DestinationCurrency);
                     command.Parameters.AddWithValue("@lots", trade.Lots);
                     command.Parameters.AddWithValue("@price", trade.Price);
-                    logger.LogMessage("INFO: Adding trade to database...");
+                    logger.LogMessage(
+                        "INFO: Adding trade to database: Source={0}, Destination={1}, Lots={2}, Price={3}",
+                        trade.SourceCurrency,
+                        trade.DestinationCurrency,
+                        trade.Lots,
+                        trade.Price);
 
                     command.ExecuteNonQuery();
                 }

@@ -8,7 +8,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        ILogger logger = new ConsoleLogger();
+        ILogger consoleLogger = new ConsoleLogger();
+        LoggerXMLDecorator logger = new LoggerXMLDecorator(consoleLogger);  // decorate the console logger with XML logging functionality
+
         // get the local, embedded trades.txt file
         var tradeStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Unit8_SRP_F24.trades.txt");
         if (tradeStream is null)

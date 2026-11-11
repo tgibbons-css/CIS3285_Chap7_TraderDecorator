@@ -1,0 +1,18 @@
+<log><message>Reading trade data from Restful API (This will block for now): http://unit9trader.azurewebsites.net/api/TradeData</message></log>
+<log><message>Received 3 trade strings</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database...</message></log>
+<log><message>INFO: Adding trade to database...</message></log>
+<log><message>INFO: Adding trade to database...</message></log>
+<log><message>INFO: 3 trades processed</message></log>
+<log><message>Reading trade data from Restful API (This will block for now): http://unit9trader.azurewebsites.net/api/TradeData</message></log>
+<log><message>Received 3 trade strings</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=GBP, Destination=USD, Lots=0.1, Price=2.25</message></log>
+<log><message>INFO: Adding trade to database: Source=GBP, Destination=JPY, Lots=0.5, Price=178.00</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.02, Price=0.90</message></log>
+<log><message>INFO: 3 trades processed</message></log>
