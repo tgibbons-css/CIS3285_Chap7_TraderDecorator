@@ -24,7 +24,7 @@ public class SimpleTradeValidator : ITradeValidator
             return false;
         }
 
-        if (fields[0].Length != 6)
+        if (fields[0].Length != 6 || !fields[0].All(char.IsLetter))
         {
             logger.LogMessage("WARN: Trade currencies on line {0} malformed: '{1}'", currentLine, fields[0]);
             return false;
@@ -37,12 +37,25 @@ public class SimpleTradeValidator : ITradeValidator
             return false;
         }
 
+        if (tradeAmount < 1000 || tradeAmount > 1_000_000)
+        {
+            logger.LogMessage("WARN: Trade amount on line {0} outside the allowed range: '{1}'", currentLine, fields[1]);
+            return false;
+        }
+
         decimal tradePrice;
         if (!decimal.TryParse(fields[2], out tradePrice))
         {
             logger.LogMessage("WARN: Trade price on line {0} not a valid decimal: '{1}'", currentLine, fields[2]);
             return false;
         }
+
+        if (tradePrice < 0)
+        {
+            logger.LogMessage("WARN: Trade price on line {0} cannot be negative: '{1}'", currentLine, fields[2]);
+            return false;
+        }
+
         return true;
     }
 }
