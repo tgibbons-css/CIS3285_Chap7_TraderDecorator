@@ -19,7 +19,9 @@ public class RestfulTradeDataProvider : ITradeDataProvider
     public IEnumerable<string> ReadTradeData()
     {
         logger.LogMessage("Reading trade data from Restful API (This will block for now): " + url);
-        return ReadTradeDataAsync().GetAwaiter().GetResult();
+        Task<List<string>> task = ReadTradeDataAsync();
+        task.Wait();                        // wait for the async task to complete (blocking)
+        return task.Result;                 // return the result of the async task
     }
 
     private async Task<List<string>> ReadTradeDataAsync()
