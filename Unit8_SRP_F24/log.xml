@@ -39,3 +39,68 @@
 <log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
 <log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
 <log><message>INFO: 4 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=GBP, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=GBP, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
+<log><message>INFO: 4 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: 2 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
+<log><message>INFO: 4 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
+<log><message>INFO: 4 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
+<log><message>INFO: 4 trades processed</message></log>
+<log><message>Reading trade data from URL: http://raw.githubusercontent.com/tgibbons-css/CIS3285_Unit9_F24/refs/heads/master/SingleResponsibilityPrinciple/trades.txt</message></log>
+<log><message>INFO: Connecting to database</message></log>
+<log><message>INFO: Going to open database connection</message></log>
+<log><message>INFO: Database connection OPEN</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=USD, Lots=0.01, Price=1.51</message></log>
+<log><message>INFO: Adding trade to database: Source=EUR, Destination=JPY, Lots=0.015, Price=178.13</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=EUR, Lots=0.012, Price=0.86</message></log>
+<log><message>INFO: Adding trade to database: Source=USD, Destination=CAD, Lots=0.1, Price=1.2</message></log>
+<log><message>INFO: 4 trades processed</message></log>
