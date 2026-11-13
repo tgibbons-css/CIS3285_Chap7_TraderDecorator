@@ -30,6 +30,7 @@ class Program
         ITradeDataProvider fileProvider = new StreamTradeDataProvider(tradeStream, logger);
         ITradeDataProvider URLProvider = new URLTradeDataProvider(tradeURL, logger);
         ITradeDataProvider RestfulAPIProvider = new RestfulTradeDataProvider(restfulURL, logger);
+        ITradeDataProvider AdjustProvider = new AdjustTradeDataProvider(URLProvider);
 
         ITradeMapper tradeMapper = new SimpleTradeMapper();
         ITradeValidator tradeValidator = new SimpleTradeValidator(logger);
@@ -38,7 +39,7 @@ class Program
 
         // set up the trade processor with different trade data providers
         //var tradeProcessor = new TradeProcessor(fileProvider, tradeParser, tradeStorage);
-        var tradeProcessor = new TradeProcessor(URLProvider, tradeParser, tradeStorage);
+        var tradeProcessor = new TradeProcessor(AdjustProvider, tradeParser, tradeStorage);
         //var tradeProcessor = new TradeProcessor(RestfulAPIProvider, tradeParser, tradeStorage);
 
         tradeProcessor.ProcessTrades();
