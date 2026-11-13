@@ -13,32 +13,26 @@ public class URLTradeDataProvider : ITradeDataProvider
         this.logger = logger;
     }
 
-    public IEnumerable<string> ReadTradeData()
+    public async Task<IEnumerable<string>> ReadTradeDataAsync()
     {
         logger.LogMessage("Reading trade data from URL: " + url);
-        // -------------- Add your code here to fetch trade data from the URL and return it as an IEnumerable<string> --------------
         List<string> tradeData = new List<string>();
         using (HttpClient client = new HttpClient())
         {
-            HttpResponseMessage response = client.GetAsync(url).Result;
+            using HttpResponseMessage response = await client.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 // log error and throw an exception if the URL fails
                 logger.LogMessage("Error fetching trade data from URL: " + url + ". Status code: " + response.StatusCode);
             }
-            // set up a Stream and StreamReader to access the data
-            using (Stream stream = response.Content.ReadAsStreamAsync().Result)
+            using (Stream stream = await response.Content.ReadAsStreamAsync())
             using (StreamReader reader = new StreamReader(stream))
             {
-                // Read each line of the text file using reader.ReadLine()
-                // Read until the reader returns a null line
-                // Add each line to the tradeData list
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                string? line;
+                while ((line = await reader.ReadLineAsync()) != null)
                 {
                     tradeData.Add(line);
                 }
-
             }
         }
         return tradeData;

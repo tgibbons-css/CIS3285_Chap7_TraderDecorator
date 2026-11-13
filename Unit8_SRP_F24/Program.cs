@@ -6,7 +6,7 @@ namespace Unit8_SRP_F24;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         ILogger consoleLogger = new ConsoleLogger();
         LoggerXMLDecorator logger = new LoggerXMLDecorator(consoleLogger);  // decorate the console logger with XML logging functionality
@@ -29,6 +29,7 @@ class Program
         // set up different trade data providers
         ITradeDataProvider fileProvider = new StreamTradeDataProvider(tradeStream, logger);
         ITradeDataProvider URLProvider = new URLTradeDataProvider(tradeURL, logger);
+        ITradeDataProvider adjustedURLProvider = new AdjustTradeDataProvider(URLProvider);
         ITradeDataProvider RestfulAPIProvider = new RestfulTradeDataProvider(restfulURL, logger);
 
         ITradeMapper tradeMapper = new SimpleTradeMapper();
@@ -38,10 +39,10 @@ class Program
 
         // set up the trade processor with different trade data providers
         //var tradeProcessor = new TradeProcessor(fileProvider, tradeParser, tradeStorage);
-        var tradeProcessor = new TradeProcessor(URLProvider, tradeParser, tradeStorage);
+        var tradeProcessor = new TradeProcessor(adjustedURLProvider, tradeParser, tradeStorage);
         //var tradeProcessor = new TradeProcessor(RestfulAPIProvider, tradeParser, tradeStorage);
 
-        tradeProcessor.ProcessTrades();
+        await tradeProcessor.ProcessTrades();
 
     }
 }
