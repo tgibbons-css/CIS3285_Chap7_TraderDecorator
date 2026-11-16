@@ -1,3 +1,4 @@
+
 using Unit8_SRP_F24;
 using Unit8_SRP_F24.Contracts;
 
@@ -7,23 +8,24 @@ namespace Unit8_SRP_F24Tests.UnitTests;
 public class TradeProcessorTests
 {
     [TestMethod]
-    public void ProcessTrades_ReadsParsesAndStoresTradesInOrder()
+    public async Task ProcessTrades_ReadsParsesAndStoresTradesInOrder()
     {
         // Arrange
         var calls = new List<string>();
         IEnumerable<string> lines = new[] { "AAABBB,1000,1.25", "CCCDDD,2000,2.50" };
         IEnumerable<TradeRecord> trades = new[]
         {
-                new TradeRecord { SourceCurrency = "AAA", DestinationCurrency = "BBB", Lots = 0.01f, Price = 1.25m },
-                new TradeRecord { SourceCurrency = "CCC", DestinationCurrency = "DDD", Lots = 0.02f, Price = 2.50m }
-            };
+            new TradeRecord { SourceCurrency = "AAA", DestinationCurrency = "BBB", Lots = 0.01f, Price = 1.25m },
+            new TradeRecord { SourceCurrency = "CCC", DestinationCurrency = "DDD", Lots = 0.02f, Price = 2.50m }
+        };
+
         var dataProvider = new StubTradeDataProvider(lines, calls);
         var parser = new StubTradeParser(trades, calls);
         var storage = new StubTradeStorage(calls);
         var processor = new TradeProcessor(dataProvider, parser, storage);
 
         // Act
-        processor.ProcessTrades();
+        await processor.ProcessTrades();
 
         // Assert
         CollectionAssert.AreEqual(new[] { "read", "parse", "store" }, calls);
@@ -32,19 +34,20 @@ public class TradeProcessorTests
     }
 
     [TestMethod]
-    public void ProcessTrades_WithNoLines_StillParsesAndStoresEmptyResults()
+    public async Task ProcessTrades_WithNoLines_StillParsesAndStoresEmptyResults()
     {
         // Arrange
         var calls = new List<string>();
         IEnumerable<string> lines = Array.Empty<string>();
         IEnumerable<TradeRecord> trades = Array.Empty<TradeRecord>();
+
         var dataProvider = new StubTradeDataProvider(lines, calls);
         var parser = new StubTradeParser(trades, calls);
         var storage = new StubTradeStorage(calls);
         var processor = new TradeProcessor(dataProvider, parser, storage);
 
         // Act
-        processor.ProcessTrades();
+        await processor.ProcessTrades();
 
         // Assert
         CollectionAssert.AreEqual(new[] { "read", "parse", "store" }, calls);
@@ -53,19 +56,20 @@ public class TradeProcessorTests
     }
 
     [TestMethod]
-    public void ProcessTrades_WhenDataProviderFails_PropagatesExceptionAndDoesNotContinue()
+    public async Task ProcessTrades_WhenDataProviderFails_PropagatesExceptionAndDoesNotContinue()
     {
         // Arrange
         var calls = new List<string>();
         var expectedException = new InvalidOperationException("Could not read trade data.");
+
         var dataProvider = new StubTradeDataProvider(calls, expectedException);
         var parser = new StubTradeParser(Array.Empty<TradeRecord>(), calls);
         var storage = new StubTradeStorage(calls);
         var processor = new TradeProcessor(dataProvider, parser, storage);
 
         // Act
-        var actualException = Assert.ThrowsException<InvalidOperationException>(
-            () => processor.ProcessTrades());
+        var actualException = await Assert.ThrowsExceptionAsync<InvalidOperationException>(
+            async () => await processor.ProcessTrades());
 
         // Assert
         Assert.AreSame(expectedException, actualException);
@@ -73,19 +77,20 @@ public class TradeProcessorTests
     }
 
     [TestMethod]
-    public void ProcessTrades_WhenParserFails_PropagatesExceptionAndDoesNotStore()
+    public async Task ProcessTrades_WhenParserFails_PropagatesExceptionAndDoesNotStore()
     {
         // Arrange
         var calls = new List<string>();
         var expectedException = new InvalidOperationException("Could not parse trade data.");
+
         var dataProvider = new StubTradeDataProvider(Array.Empty<string>(), calls);
         var parser = new StubTradeParser(calls, expectedException);
         var storage = new StubTradeStorage(calls);
         var processor = new TradeProcessor(dataProvider, parser, storage);
 
         // Act
-        var actualException = Assert.ThrowsException<InvalidOperationException>(
-            () => processor.ProcessTrades());
+        var actualException = await Assert.ThrowsExceptionAsync<InvalidOperationException>(
+            async () => await processor.ProcessTrades());
 
         // Assert
         Assert.AreSame(expectedException, actualException);
@@ -111,15 +116,16 @@ public class TradeProcessorTests
             lines = Array.Empty<string>();
         }
 
-        public IEnumerable<string> ReadTradeData()
+        public Task<IEnumerable<string>> ReadTradeDataAsync()
         {
             calls.Add("read");
+
             if (exception is not null)
             {
-                throw exception;
+                return Task.FromException<IEnumerable<string>>(exception);
             }
 
-            return lines;
+            return Task.FromResult(lines);
         }
     }
 
@@ -146,6 +152,7 @@ public class TradeProcessorTests
         {
             calls.Add("parse");
             ReceivedLines = lines;
+
             if (exception is not null)
             {
                 throw exception;
@@ -175,4 +182,3 @@ public class TradeProcessorTests
         }
     }
 }
-
